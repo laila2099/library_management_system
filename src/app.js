@@ -20,10 +20,10 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`🚀 Server running on http://localhost:${PORT}`);
 });
-const runCron = require('./utils/cron');
+const runCron = require('./utils/loan.cron');
 
 setInterval(runCron, 1000 * 60 * 60); 
 
-const runReservationCron = require('./utils/reservationCron');
+const runReservationCron = require('./utils/reservation.cron');
 
-setInterval(runReservationCron, 1000 * 60 * 60); // كل ساعة
+setInterval(runReservationCron, 1000 * 60 * 60);
