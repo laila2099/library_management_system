@@ -1,0 +1,186 @@
+{
+  "info": {
+    "name": "Library Management System API",
+    "_postman_id": "b7a9c1d1-1111-2222-3333-abcdef123456",
+    "description": "Full API collection for Users, Materials, Loans, Reservations, Reviews",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000/api/v1"
+    }
+  ],
+  "item": [
+    {
+      "name": "Users - Create",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Laila\",\n  \"email\": \"laila@test.com\",\n  \"phone\": \"123456\",\n  \"password\": \"123456\",\n  \"role\": \"member\",\n  \"address\": \"Sofia\",\n  \"dateOfBirth\": \"2000-01-01\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/users"
+        }
+      }
+    },
+    {
+      "name": "Users - Get All",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/users"
+        }
+      }
+    },
+    {
+      "name": "Users - Update",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Updated Name\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/users/:id"
+        }
+      }
+    },
+
+    {
+      "name": "Materials - Create",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"materialType\": \"book\",\n  \"title\": \"Clean Code\",\n  \"publisher\": \"Prentice Hall\",\n  \"publicationYear\": 2008,\n  \"category\": \"Programming\",\n  \"totalCopies\": 5,\n  \"availableCopies\": 5,\n  \"author\": \"Robert C. Martin\",\n  \"isbn\": \"123456789\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/materials"
+        }
+      }
+    },
+    {
+      "name": "Materials - Get All",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/materials"
+        }
+      }
+    },
+    {
+      "name": "Materials - Update",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Updated Title\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/materials/:id"
+        }
+      }
+    },
+
+    {
+      "name": "Loans - Create Borrow",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"member\": \"USER_ID\",\n  \"material\": \"MATERIAL_ID\",\n  \"recordedBy\": \"USER_ID\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/loans"
+        }
+      }
+    },
+    {
+      "name": "Loans - Return",
+      "request": {
+        "method": "PUT",
+        "url": {
+          "raw": "{{base_url}}/loans/:id/return"
+        }
+      }
+    },
+    {
+      "name": "Loans - Get All",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/loans"
+        }
+      }
+    },
+
+    {
+      "name": "Reservations - Create",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"material\": \"MATERIAL_ID\",\n  \"member\": \"USER_ID\",\n  \"queuePriority\": 1\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/reservations"
+        }
+      }
+    },
+    {
+      "name": "Reservations - Get All",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/reservations"
+        }
+      }
+    },
+
+    {
+      "name": "Reviews - Create",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"material\": \"MATERIAL_ID\",\n  \"member\": \"USER_ID\",\n  \"rating\": 5,\n  \"reviewText\": \"Great book\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/reviews"
+        }
+      }
+    },
+    {
+      "name": "Reviews - Get All",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/reviews"
+        }
+      }
+    }
+  ]
+}
